@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בוט תמיכה - ALIVE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            direction: rtl;
+        }
+        .chat-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .chat-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chat-header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .message {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+        .user-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+        .send-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .send-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>🤖 בוט התמיכה של ALIVE</h1>
+            <p>היי! אני כאן לעזור לך ליצור פניה חדשה</p>
+        </div>
+        
+        <div id="messages">
+            <div class="message">
+                👋 שלום! איך אני יכול לעזור לך היום?
+            </div>
+        </div>
+        
+        <input type="text" class="user-input" id="userInput" placeholder="הקלד את הודעתך כאן...">
+        <button class="send-btn" onclick="sendMessage()">שלח הודעה</button>
+    </div>
 
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage('אתה: ' + message);
+                input.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    addMessage('🤖 בוט: תודה על ההודעה! המערכת מתפתחת...');
+                }, 1000);
+            }
+        }
+        
+        function addMessage(text) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
