@@ -1,8 +1,8 @@
 <?php
 // ALIVE Support System - Installation Script
 
-require_once 'config.php';
-require_once 'database.php';
+require_once 'backend/config.php';
+require_once 'backend/database.php';
 
 header('Content-Type: application/json');
 
