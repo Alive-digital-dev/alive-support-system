@@ -1,0 +1,14 @@
+{
+  "name": "alive-support-system",
+  "version": "1.0.0",
+  "description": "ALIVE Support System",
+  "main": "backend/websocket/chat-server.js",
+  "scripts": {
+    "start": "echo 'ALIVE Support System started'",
+    "build": "echo 'Build completed'"
+  },
+  "engines": {
+    "node": "18.x",
+    "php": "8.1.x"
+  }
+}
